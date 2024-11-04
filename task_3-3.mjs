@@ -1,180 +1,192 @@
 "use strict";
-import { initPrintOut, printOut, newLine } from "../../common/script/utils.mjs";
+import { initPrintOut, printOut, newLine } from "./common/script/utils.mjs";
+
+// Initialize the output area
 initPrintOut(document.getElementById("txtOut"));
 
-printOut("--- Part 1 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
+// Part 1: Print today's date in Norwegian format
+printOut("--- Part 1 ---" + newLine());
 function printTodaysDate() {
-  const today = new Date();
-  printOut(today.toLocaleDateString("no-NB", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
+    const today = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = today.toLocaleDateString('no-NB', options);
+    printOut("Dagens dato: " + formattedDate + newLine());
 }
 printTodaysDate();
-printOut(newLine);
 
-printOut("--- Part 2 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
+// Part 2: Enhanced date function and countdown to 2XKO release
+printOut("--- Part 2 ---" + newLine());
 function getTodaysDate() {
-  const today = new Date();
-  printOut(today.toLocaleDateString("no-NB", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
-  return today;
+    const today = new Date();
+    return today; // Return today's date as a Date object
 }
 
-function countdownTo2XKO() {
-  const releaseDate = new Date('2025-05-14');
-  const today = new Date();
-  const timeDiff = releaseDate - today;
-  const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-  printOut(`Countdown to 2XKO release: ${daysLeft} days left!`);
-}
+function countdownToRelease() {
+    const releaseDate = new Date('2025-05-14');
+    const today = getTodaysDate();
+    const timeDiff = releaseDate - today; // Difference in milliseconds
+    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // Convert to days
 
-function displayDateAndCountdown() {
-  getTodaysDate();
-  countdownTo2XKO();
+    printOut("Countdown to 2XKO release: " + daysLeft + " dager igjen!" + newLine());
 }
-displayDateAndCountdown();
-printOut(newLine);
+countdownToRelease();
 
-printOut("--- Part 3 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
+// Part 3: Calculate diameter, circumference, and area of a circle
+printOut("--- Part 3 ---" + newLine());
 function circleCalculations(radius) {
-  const diameter = 2 * radius;
-  const circumference = 2 * Math.PI * radius;
-  const area = Math.PI * radius * radius;
-
-  printOut(`Diameter: ${diameter}`);
-  printOut(newLine);
-  printOut(`Circumference: ${circumference.toFixed(2)}`);
-  printOut(newLine);
-  printOut(`Area: ${area.toFixed(2)}`);
+    const diameter = radius * 2;
+    const circumference = 2 * Math.PI * radius;
+    const area = Math.PI * Math.pow(radius, 2);
+    
+    printOut("Sirkeldiameter: " + diameter.toFixed(2) + newLine());
+    printOut("Sirkels omkrets: " + circumference.toFixed(2) + newLine());
+    printOut("Sirkels areal: " + area.toFixed(2) + newLine());
 }
-circleCalculations(5);
-printOut(newLine);
+circleCalculations(10);
 
-printOut("--- Part 4 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
+// Part 4: Calculate circumference and area of a rectangle
+printOut("--- Part 4 ---" + newLine());
 function rectangleCalculations(dimensions) {
-  const { width, height } = dimensions;
-  const circumference = 2 * (width + height);
-  const area = width * height;
+    const width = dimensions.width;
+    const height = dimensions.height;
+    const circumference = 2 * (width + height);
+    const area = width * height;
 
-  printOut(`Circumference: ${circumference}`);
-  printOut(newLine);
-  printOut(`Area: ${area}`);
+    printOut("Rektangels omkrets: " + circumference + newLine());
+    printOut("Rektangels areal: " + area + newLine());
 }
-rectangleCalculations({ width: 10, height: 5 });
-printOut(newLine);
+rectangleCalculations({ width: 5, height: 10 });
 
-printOut("--- Part 5 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-function convertTemperature(value, type) {
-  let celsius, fahrenheit, kelvin;
-
-  if (type.toLowerCase() === 'celsius') {
-    celsius = Math.round(value);
-    fahrenheit = Math.round((value * 9/5) + 32);
-    kelvin = Math.round(value + 273.15);
-  } else if (type.toLowerCase() === 'fahrenheit') {
-    celsius = Math.round((value - 32) * 5/9);
-    fahrenheit = Math.round(value);
-    kelvin = Math.round((value - 32) * 5/9 + 273.15);
-  } else if (type.toLowerCase() === 'kelvin') {
-    celsius = Math.round(value - 273.15);
-    fahrenheit = Math.round((value - 273.15) * 9/5 + 32);
-    kelvin = Math.round(value);
-  } else {
-    printOut("Unknown temperature type!");
-    return;
-  }
-
-  printOut(`Celsius: ${celsius}, Fahrenheit: ${fahrenheit}, Kelvin: ${kelvin}`);
-}
-convertTemperature(100, 'celsius');
-printOut(newLine);
-
-printOut("--- Part 6 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-function calculateNetPrice(grossAmount, vatGroup) {
-  let vatPercentage;
-
-  switch (vatGroup.toLowerCase()) {
-    case 'normal':
-      vatPercentage = 25;
-      break;
-    case 'food':
-      vatPercentage = 15;
-      break;
-    case 'hotel':
-    case 'transport':
-    case 'cinema':
-      vatPercentage = 10;
-      break;
-    default:
-      printOut("Unknown VAT group!");
-      return NaN;
-  }
-
-  const netPrice = (100 * grossAmount) / (100 + vatPercentage);
-  printOut(`Net price: ${netPrice.toFixed(2)}`);
-  return netPrice;
-}
-calculateNetPrice(125, 'normal');
-printOut(newLine);
-calculateNetPrice(100, 'food');
-printOut(newLine);
-calculateNetPrice(110, 'hotel');
-printOut(newLine);
-calculateNetPrice(100, 'goblins'); // should print "Unknown VAT group!"
-printOut(newLine);
-
-printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-function calculateSpeedDistanceTime(distance, time, speed) {
-  if (distance === undefined) return time && speed ? time * speed : NaN;
-  if (time === undefined) return distance && speed ? distance / speed : NaN;
-  if (speed === undefined) return distance && time ? distance / time : NaN;
-  return NaN;
-}
-printOut(`Speed: ${calculateSpeedDistanceTime(100, 2, undefined)}`); // calculates speed
-printOut(newLine);
-printOut(`Distance: ${calculateSpeedDistanceTime(undefined, 2, 50)}`); // calculates distance
-printOut(newLine);
-printOut(`Time: ${calculateSpeedDistanceTime(100, undefined, 50)}`); // calculates time
-printOut(newLine);
-
-printOut("--- Part 8 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-function modifyString(text, maxSize, char, insertAtEnd) {
-  while (text.length < maxSize) {
-    text = insertAtEnd ? text + char : char + text;
-  }
-  printOut(text);
-  return text;
-}
-modifyString("Hello", 10, "*", true); // adds '*' at the end
-printOut(newLine);
-
-printOut("--- Part 9 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-function checkMathExpressions() {
-  for (let i = 1, n = 2; i <= 200; i += n) {
-    const leftSum = Array.from({ length: n }, (_, k) => i + k).reduce((a, b) => a + b, 0);
-    const rightSum = Array.from({ length: n }, (_, k) => i + n + k).reduce((a, b) => a + b, 0);
-    if (leftSum !== rightSum) {
-      printOut(`Mismatch at line starting with ${i}`);
-      return;
+// Part 5: Temperature conversion function
+printOut("--- Part 5 ---" + newLine());
+function temperatureConversion(temp, type) {
+    let celsius, fahrenheit, kelvin;
+    
+    if (type.toLowerCase() === 'c') {
+        celsius = temp;
+        fahrenheit = (celsius * 9/5) + 32;
+        kelvin = celsius + 273.15;
+    } else if (type.toLowerCase() === 'f') {
+        fahrenheit = temp;
+        celsius = (fahrenheit - 32) * 5/9;
+        kelvin = celsius + 273.15;
+    } else if (type.toLowerCase() === 'k') {
+        kelvin = temp;
+        celsius = kelvin - 273.15;
+        fahrenheit = (celsius * 9/5) + 32;
+    } else {
+        printOut("Ukjent temperaturtype!" + newLine());
+        return;
     }
-    n++;
-  }
-  printOut("Maths fun!");
-}
-checkMathExpressions();
-printOut(newLine);
 
-printOut("--- Part 10 ---------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-function factorial(n) {
-  if (n <= 1) return 1;
-  return n * factorial(n - 1);
+    printOut(`Celsius: ${Math.round(celsius)}, Fahrenheit: ${Math.round(fahrenheit)}, Kelvin: ${Math.round(kelvin)}` + newLine());
 }
-printOut(`Factorial of 5: ${factorial(5)}`); // 120
-printOut(newLine);
+temperatureConversion(100, 'C');
+
+// Part 6: Calculate price without VAT
+printOut("--- Part 6 ---" + newLine());
+function calculateNetPrice(gross, vatGroup) {
+    let vat;
+    switch (vatGroup.toLowerCase()) {
+        case 'normal':
+            vat = 25;
+            break;
+        case 'food':
+            vat = 15;
+            break;
+        case 'hotel':
+        case 'transport':
+        case 'cinema':
+            vat = 10;
+            break;
+        default:
+            printOut("Unknown VAT group!" + newLine());
+            return NaN;
+    }
+    const netPrice = (100 * gross) / (vat + 100);
+    printOut(`Net price for ${gross} including VAT (${vatGroup}): ${netPrice.toFixed(2)}` + newLine());
+    return netPrice;
+}
+
+// Call the function with various VAT groups
+calculateNetPrice(125, 'normal');
+calculateNetPrice(115, 'food');
+calculateNetPrice(110, 'hotel');
+calculateNetPrice(100, 'goblins'); // Unknown VAT group
+
+// Part 7: Calculate speed, distance, or time
+printOut("--- Part 7 ---" + newLine());
+function calculateSpeedDistanceTime(speed, distance, time) {
+    if (speed === undefined && distance !== undefined && time !== undefined) {
+        return distance / time; // Calculate speed
+    } else if (distance === undefined && speed !== undefined && time !== undefined) {
+        return speed * time; // Calculate distance
+    } else if (time === undefined && speed !== undefined && distance !== undefined) {
+        return distance / speed; // Calculate time
+    } else {
+        return NaN; // More than one parameter is missing
+    }
+}
+
+// Test the function
+printOut(`Calculated Speed: ${calculateSpeedDistanceTime(undefined, 100, 2)} (Speed)` + newLine());
+printOut(`Calculated Distance: ${calculateSpeedDistanceTime(50, undefined, 2)} (Distance)` + newLine());
+printOut(`Calculated Time: ${calculateSpeedDistanceTime(50, 100, undefined)} (Time)` + newLine());
+printOut(`Invalid Call Result: ${calculateSpeedDistanceTime(undefined, undefined, 2)}` + newLine());
+
+// Part 8: String manipulation
+printOut("--- Part 8 ---" + newLine());
+function manipulateString(text, maxSize, char, insertBefore) {
+    while (text.length < maxSize) {
+        if (insertBefore) {
+            text = char + text; // Insert character before
+        } else {
+            text = text + char; // Insert character after
+        }
+    }
+    return text;
+}
+
+// Test the string manipulation
+const newText = manipulateString("Hello", 10, "*", true);
+printOut("Manipulated String: " + newText + newLine());
+
+// Part 9: Validate mathematical expressions
+printOut("--- Part 9 ---" + newLine());
+function validateMathematicalExpressions() {
+    for (let i = 1; i <= 200; i++) {
+        let leftSide = 0;
+        let rightSide = 0;
+
+        // Example: Generate left side and right side of the equation
+        for (let j = (i - 1) * 5 + 1; j <= i * 5; j++) {
+            leftSide += j;
+        }
+        for (let j = (i * 5) + 1; j <= (i * 5) + 5; j++) {
+            rightSide += j;
+        }
+
+        // Check if they are equal
+        if (leftSide !== rightSide) {
+            printOut(`Mismatch at line ${i}: ${leftSide} != ${rightSide}` + newLine());
+            return; // Stop the loop if a mismatch is found
+        }
+    }
+    printOut("Maths fun!" + newLine());
+}
+validateMathematicalExpressions();
+
+// Part 10: Calculate factorial using recursion
+printOut("--- Part 10 ---" + newLine());
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1; // Base case: 0! = 1 and 1! = 1
+    } else {
+        return n * factorial(n - 1); // Recursive call
+    }
+}
+
+// Test the factorial function
+const number = 5; // Change this number for different factorials
+const result = factorial(number);
+printOut(`Factorial of ${number} is: ${result}` + newLine());
