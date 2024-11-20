@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" style="display: table; margin: auto; zoom: 1">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task 4.2</title>
+  </head>
+  <body style="display: table-cell; vertical-align: middle">
+    <h2><label for="txtOut">Output from Task 4.2:</label></h2>
+    <div style="padding: 10px; min-width: 512px; border: darkblue thin solid; background-color: antiquewhite; font-family: 'Courier New', serif">
+      <span id="txtOut" style="white-space: nowrap"></span>
+    </div>
+    <ol>
+      <li>What is an array? A short and concise answer is expected here!</li>
+      <p>An array is a data structure that stores a collection of elements, typically of the same type, in a sequential order, accessible by indices.</p>
+
+      <li>What does it mean to "hardcode" when we talk about programming? (In English, it's called "hard coding", "hard-coding", or "hardcoding").</li>
+      <p>Hardcoding refers to embedding fixed values directly into the code rather than using variables or dynamic input.</p>
+
+      <li>Explain in plain text what happens in task 3, and how we can traverse (iterate) the array when we (humans) don't "know" how long the array is.</li>
+      <p>In task 3, the text is split into individual words using the <code>split</code> function. The <code>forEach</code> method is used to iterate through the array, which works regardless of the array's length, as it automatically loops over all elements.</p>
+
+      <li>Why is it beneficial to store instances of a class in arrays, as in task 4?</li>
+      <p>Storing instances of a class in an array allows us to efficiently manage and process multiple objects of the same type, providing structured access and enabling operations like iteration, sorting, and filtering.</p>
+
+      <li>Try your best to explain the EWeekDays object from task 7. How do we use the "value" attribute, for example? In what way do "WeekDay", "Workdays", and "Weekends" differ from each other? If we wanted to create a new element "WorkoutDays", which would contain "Monday", "Wednesday", and "Thursday", how would it ideally look? (I will choose the best answer to this task and reward it with pizza in the cafeteria right after New Year. Remember to mark in your submission if you want to participate in the competition!)</li>
+      <p>The <code>EWeekDays</code> object groups days into categories. Each key like "WeekDay", "Workdays", or "Weekends" is associated with an array of specific days. To add "WorkoutDays", we could define it as <code>"WorkoutDays": ["Monday", "Wednesday", "Thursday"]</code>. These categories allow us to group and retrieve subsets of days easily.</p>
+
+      <li>In task 8, we will use a "callback" routine when sorting. Explain how such a "callback" routine works.</li>
+      <p>A callback routine is a function passed as an argument to another function. In sorting, the callback function determines the order by comparing two elements, returning a negative, zero, or positive value to indicate their order.</p>
+
+      <li>What happens in the sorting routines you have created? Try to explain how the array can figure out if an element should come before or after another. The best way to answer this is to actually print both parameters each time the sorting routine runs.</li>
+      <p>The sorting routine compares two elements at a time using the callback function. For ascending order, it subtracts one element from another. To debug, we could print both elements in each comparison to see how the logic is applied.</p>
+
+      <li>In task 10, we will create an array with rows and columns. Explain what the first element of the array contains.</li>
+      <p>The first element of the array is itself an array (a row), containing all column elements for the first row. For example, <code>["Row 0, Col 0", "Row 0, Col 1", ...]</code>.</p>
+    </ol>
+    <script type="module" src="./task_4-2.mjs" defer></script>
+  </body>
+</html>
