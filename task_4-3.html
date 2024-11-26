@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgaver</title>
+    <script type="module" src="task_4-3.mjs"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        #tblMovies {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        #tblMovies, #tblMovies th, #tblMovies td {
+            border: 1px solid black;
+        }
+        #tblMovies th, #tblMovies td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Part 1 -->
+    <div class="section">
+        <h2>Oppgave 1 - Rektangel</h2>
+        <label for="txtRectWidth">Bredde:</label>
+        <input type="number" id="txtRectWidth" placeholder="Bredde">
+        <label for="txtRectHeight">Høyde:</label>
+        <input type="number" id="txtRectHeight" placeholder="Høyde">
+        <button id="cmbTask1Calculate">Beregn</button>
+        <p id="txtTask1Output"></p>
+    </div>
+
+    <!-- Part 2 -->
+    <div class="section">
+        <h2>Oppgave 2 - Ordinnleggelse</h2>
+        <input type="text" id="txtTask2Word" placeholder="Skriv inn ord...">
+        <p id="txtTask2Output"></p>
+    </div>
+
+    <!-- Part 3 -->
+    <div class="section">
+        <h2>Oppgave 3 - Checkboxes</h2>
+        <input type="checkbox" name="chkTask3"> Apple<br>
+        <input type="checkbox" name="chkTask3"> Banana<br>
+        <input type="checkbox" name="chkTask3"> Cherry<br>
+        <button id="cmbTask3CheckAnswer">Sjekk valgte</button>
+        <p id="txtTask3Output"></p>
+    </div>
+
+    <!-- Part 4 -->
+    <div class="section">
+        <h2>Oppgave 4 - Radioknapper for Bilmerker</h2>
+        <div id="divTask4Cars"></div>
+        <p id="txtTask4Output"></p>
+    </div>
+
+    <!-- Part 5 -->
+    <div class="section">
+        <h2>Oppgave 5 - Dyrevalg</h2>
+        <select id="selectTask5Animals">
+            <option value="1">Katt</option>
+            <option value="2">Hund</option>
+            <option value="3">Hest</option>
+            <option value="4">Kaniner</option>
+        </select>
+        <p id="txtTask5Output"></p>
+    </div>
+
+    <!-- Part 6 -->
+    <div class="section">
+        <h2>Oppgave 6 - Jentenavn</h2>
+        <select id="selectTask6Girls"></select>
+        <p id="txtTask6Output"></p>
+    </div>
+
+    <!-- Part 7 -->
+    <div class="section">
+        <h2>Oppgave 7 - Legg til Film</h2>
+        <label for="txtMovieTitle">Film Tittel:</label>
+        <input type="text" id="txtMovieTitle" placeholder="Tittel">
+        <label for="txtMovieDirector">Regissør:</label>
+        <input type="text" id="txtMovieDirector" placeholder="Regissør">
+        <label for="selectMovieGenre">Genre:</label>
+        <select id="selectMovieGenre"></select>
+        <label for="txtMovieRate">Vurdering (1-10):</label>
+        <input type="number" id="txtMovieRate" min="1" max="10" placeholder="Vurdering">
+        <button id="cmbAddMovie">Legg til film</button>
+        <table id="tblMovies">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tittel</th>
+                    <th>Genre</th>
+                    <th>Regissør</th>
+                    <th>Vurdering</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</body>
+</html>
