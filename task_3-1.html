@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" style="display: table; margin: auto; zoom: 1">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task 3.1</title>
+</head>
+<body style="display: table-cell; vertical-align: middle">
+  <h2><label for="txtOut">Output from Task 3.1:</label></h2>
+  <div style="padding: 10px; min-width: 512px; border: darkblue thin solid; background-color: antiquewhite; font-family: 'Courier New', serif">
+    <span id="txtOut" style="white-space: nowrap">Loading output...</span>
+  </div>
+  <ol>
+    <li>Discuss the behavior of part 1, What happens when the wake-up time is not 7 and what happens when it is exactly 7?</li>
+    <p>[Når wake-up time er nøyaktig 7, vil if-setningen evalueres som sann, og meldingen "I can take the bus to school." vil bli skrevet ut til HTML-siden. Hvis wake-up time er noe annet enn 7 (f.eks. 6 eller 8), vil if-setningen evalueres som usann, og ingenting vil bli skrevet ut. Med andre ord vil det bare skje noe hvis wake-up time er lik 7.]</p>
+    <li>Same as question #1. However, the answer should now be different. Discuss the behavior of part 2, What happens when the wake-up time is not 7 and what happens when it is exactly 7?</li>
+    <p>[I denne delen er if-setningen utvidet til å inkludere en "else"-del. Hvis wake-up time er nøyaktig 7, vil meldingen "I can take the bus to school." bli skrevet ut. Hvis wake-up time er noe annet enn 7 (f.eks. 6 eller 8), vil "else"-delen bli utført, og meldingen "I have to take the car to school." vil bli skrevet ut. Dette gjør at programmet dekker begge tilfeller: en melding for når wake-up time er 7, og en annen melding for alle andre verdier.]</p>
+    <li>Discuss the behavior of part 3, what happens when wake time is less than 7 or greater than 8?</li>
+    <p>[I denne delen utvides betingelsene ytterligere. Hvis wake-up time er nøyaktig 7, vil meldingen "I can take the bus to school." bli skrevet ut. Hvis wake-up time er nøyaktig 8, vil meldingen "I can take the train to school." bli skrevet ut. Hvis wake-up time er mindre enn 7 eller større enn 8, vil ingen av de første betingelsene bli oppfylt, og "else"-delen vil bli utført, som skriver ut "I have to take the car to school." Dette dekker tre ulike tilfeller av wake-up time.]</p>
+    <li>Discuss the behavior for part 4, what happens if the number is exactly 0, is zero positive or negative?</li>
+    <p>[Når vi sjekker om et heltall er negativt eller positivt, vil tallet 0 typisk ikke bli regnet som verken negativt eller positivt. Hvis vi bare bruker en if-setning for å sjekke om tallet er større enn 0 (positivt) eller mindre enn 0 (negativt), vil tallet 0 ikke oppfylle noen av betingelsene.]</p>
+  </ol>
+  <script type="module" src="./task_3-1.mjs"></script>
+</body>
+</html>

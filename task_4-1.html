@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" style="display: table; margin: auto; zoom: 1">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task 4.1</title>
+  </head>
+  <body style="display: table-cell; vertical-align: middle">
+    <h2><label for="txtOut">Output from Task 4.1:</label></h2>
+    <div style="padding: 10px; min-width: 512px; min-height: 100px; border: darkblue thin solid; background-color: antiquewhite; font-family: 'Courier New', serif">
+      <span id="txtOut" style="white-space: nowrap"></span>
+    </div>
+
+    <h3>Discussion Questions</h3>
+    <ol>
+      <li>Why is object-oriented development so important in programming?</li>
+      <p>Object-oriented development allows for code reusability, modular design, and encapsulation, making it easier to manage and maintain complex systems. By modeling real-world entities as classes, it also helps create more intuitive and organized code structures.</p>
+
+      <li>In Task 1, we create a static object called "AccountType." Explain what this object is used for and how this type of object can help us in software development.</li>
+      <p>The static object `AccountType` provides a single source of truth for different account types. This makes code more readable and avoids hardcoding values, which improves maintainability by allowing updates in one place.</p>
+
+      <li>Discuss why we use encapsulation in classes. Why do we want to "hide" code within our class? Explain how we can create "private" and "public" members in a constructor function.</li>
+      <p>Encapsulation helps control access to data within a class and prevents unintended interference. Private members (using `#`) are hidden from outside access, while public methods provide controlled access, ensuring the internal state remains consistent and protected.</p>
+
+      <li>Explain what happens when we use the "new" command in JavaScript.</li>
+      <p>The `new` command creates an instance of a class, allocating memory and setting `this` to refer to the new instance, allowing properties and methods to be applied to that specific object.</p>
+    </ol>
+
+    <!-- Link to the JavaScript module -->
+    <script type="module" src="./task_4-1.mjs" defer></script>
+  </body>
+</html>
